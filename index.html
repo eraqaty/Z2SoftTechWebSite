@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z2 SoftTech | Enterprise Business Solutions & Automotive ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-blue: #0f172a;
+            --accent-blue: #2563eb;
+            --text-gray: #475569;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-blue);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Global Components --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo span { color: var(--accent-blue); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .experience-badge {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        /* --- Card Grid (Services & Industries) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        
+        /* Icon Placeholder */
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* --- Why Choose Us --- */
+        .why-us { background: var(--light-bg); }
+
+        /* --- Contact --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+        }
+
+        .contact-info div { margin-bottom: 20px; }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-blue);
+            color: #94a3b8;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+            <div class="logo">Z2<span>SoftTech</span></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#industries">Industries</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="btn" style="padding: 8px 20px;">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Operational Excellence <br> Through Intelligent Software</h1>
+            <p>We solve real-world business problems with high-performance ERP systems and custom software tailored for growth.</p>
+            <a href="#services" class="btn">Explore Our Solutions</a>
+        </div>
+    </section>
+
+    <section id="about" class="container section-padding">
+        <div class="about-grid">
+            <div>
+                <span class="experience-badge">17+</span>
+                <h2>Years of Engineering Excellence</h2>
+            </div>
+            <div>
+                <p>At <strong>Z2 SoftTech</strong>, we don't just build software—we deliver business solutions. Our team brings over 17 years of experience in solving complex operational hurdles. We understand the bridge between business logic and technical execution, ensuring every system we build adds measurable value to your bottom line.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding why-us">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 10px;">Our Core Services</h2>
+            <p style="text-align: center; color: var(--text-gray);">Comprehensive digital transformation for modern enterprises.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="icon-box">ERP</div>
+                    <h3>Enterprise Resource Planning</h3>
+                    <p>Modular systems designed to unify your accounting, HR, and supply chain into one source of truth.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">CRM</div>
+                    <h3>Customer Relationship</h3>
+                    <p>Strategic CRM tools focused on lead conversion, customer retention, and automated sales pipelines.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">Custom</div>
+                    <h3>Bespoke Development</h3>
+                    <p>Tailor-made software built to solve specific operational gaps that off-the-shelf products can't reach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="industries" class="container section-padding">
+        <h2 style="text-align: center; margin-bottom: 40px;">Specialized Automotive Solutions</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Car Retail & Showrooms</h3>
+                <p>Inventory management, lead tracking, and automated sales agreements for modern vehicle dealerships.</p>
+            </div>
+            <div class="card">
+                <h3>Service Center Management</h3>
+                <p>Job card tracking, technician scheduling, and maintenance history logs for high-volume centers.</p>
+            </div>
+            <div class="card">
+                <h3>Spare Parts Management</h3>
+                <p>Real-time inventory tracking, multi-vendor support, and retail POS for automotive parts businesses.</p>
+            </div>
+            <div class="card">
+                <h3>Automotive CRM</h3>
+                <p>Specific sales cycles designed for the high-ticket car industry, from test drive to final handover.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding why-us">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Why Partner With Us?</h2>
+            <div class="grid">
+                <div style="text-align: center;">
+                    <h4>Deep Business Understanding</h4>
+                    <p>We analyze your workflow before writing a single line of code.</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Customization First</h4>
+                    <p>Your business is unique. Your software should reflect that—not force you into a template.</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Scalable Architecture</h4>
+                    <p>Built for today, ready for tomorrow. Our systems grow as your data grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container section-padding">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Ready to scale?</h2>
+                <p>Tell us about your operational challenges and let's build the solution together.</p>
+                <div style="margin-top: 30px;">
+                    <strong>Email:</strong><br>info@z2softtech.com
+                </div>
+                <div>
+                    <strong>Location:</strong><br>Cairo, Egypt
+                </div>
+            </div>
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Business Email" required>
+                <textarea rows="5" placeholder="Tell us about your project/needs" required></textarea>
+                <button type="submit" class="btn" style="border:none; cursor:pointer; width:100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Z2 SoftTech. All rights reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Empowering Automotive and Enterprise Growth through Technology.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Form Submission Logic
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. Our team will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth Scrolling for Safari
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
